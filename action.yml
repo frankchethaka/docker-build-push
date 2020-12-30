@@ -52,7 +52,7 @@ runs:
         then
           tag=${{ inputs.tag }}
         else
-          tag=latest
+          tag=${GITHUB_REF#refs/heads/}.$(git rev-parse --short HEAD)
         fi
 
         if [ ${{ inputs.dockerfile }} ]
