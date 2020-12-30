@@ -76,6 +76,7 @@ runs:
     - name: Push Docker Image
       run: |
         sudo docker push ${{ inputs.registry }}/${{ inputs.image }}:${{ steps.docker_build_step.outputs.tag }}
+        sudo docker tag ${{ inputs.registry }}/${{ inputs.image }}:${{ steps.docker_build_step.outputs.tag }} ${{ inputs.registry }}/${{ inputs.image }}:latest
         sudo docker push ${{ inputs.registry }}/${{ inputs.image }}:latest
       shell: bash
 
