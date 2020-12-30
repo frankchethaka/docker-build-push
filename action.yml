@@ -35,7 +35,7 @@ runs:
   steps:
     - name: Login to docker registry if private registry
       run: |
-        if [[ ${{ inputs.username }} ]]; then  
+        if [[ ${{ inputs.username }} ]]; then
           sudo docker login ${{ inputs.registry }} -u ${{ inputs.username }} -p ${{ inputs.password }}
         fi
       shell: bash
@@ -52,14 +52,14 @@ runs:
           tag=latest
         fi
 
-        if [[ ${{ inputs.dockerfile }} ]]
+        if [[ ${{ inputs.dockerfile }} ]]; then
           dockerfile=${{ inputs.dockerfile }}
         else
           dockerfile=Dockerfile
         fi
 
         build_args_statement=""
-        if [[ "${{ inputs.buildArgs }}" ]]
+        if [[ "${{ inputs.buildArgs }}" ]]; then
           for build_arg in $(echo ${{ inputs.buildArgs }} | sed 's/,/ /g')
           do
             build_args_statement=$(echo $build_args_statement --build-arg $build_arg )
