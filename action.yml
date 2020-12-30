@@ -9,8 +9,6 @@ inputs:
   registry:
     description: 'Target Docker registry'
     required: true
-  registry_type: 'Target Docker registry Type'
-    required: true
   dockerfile:
     description: 'Location of Dockerfile, if not Dockerfile in root directory'
     required: false
