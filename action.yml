@@ -71,7 +71,7 @@ runs:
           done
         fi
         sudo docker build -t ${{ inputs.registry }}/${{ inputs.image }}:$tag -f $dockerfile $build_args_statement .
-        echo "::set-output name=tag::$tag
+        echo "::set-output name=tag::$tag"
       shell: bash
     - name: Push Docker Image
       run: |
